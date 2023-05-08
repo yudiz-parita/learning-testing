@@ -1,4 +1,6 @@
 # learning-testing
+![image](https://user-images.githubusercontent.com/117351630/236799422-48289bf0-d194-49e0-b3b0-adc2c93757ee.png)
+
 
 # Month 1:
 
