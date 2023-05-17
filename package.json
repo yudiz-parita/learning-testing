@@ -1,0 +1,17 @@
+{
+  "name": "example-mocha-chai",
+  "version": "1.0.0",
+  "description": "![image](https://user-images.githubusercontent.com/117351630/236799422-48289bf0-d194-49e0-b3b0-adc2c93757ee.png)",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  },
+  "scripts": {
+    "test": "mocha 'test-case/**/*.spec.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
