@@ -19,6 +19,7 @@ describe('User JSON object', () => {
         email: 'parita.ganatra@yudiz.com'
     };
 
+    
     expect(actualUser).to.deep.equal(expectedUser);
   });
 });
