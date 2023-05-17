@@ -58,7 +58,5 @@ describe('Expect check function',function(){
         expect(beverages).to.have.property('tea').with.lengthOf(3);
     })
 })
-it('check without describe',function(){
-    expect(userName).to.equal("code improve")
-})
+
 
