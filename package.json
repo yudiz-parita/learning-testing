@@ -9,7 +9,8 @@
   "devDependencies": {
     "chai": "^4.3.7",
     "dotenv": "^16.0.3",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "sinon": "^15.1.0"
   },
   "scripts": {
     "test": "mocha"
