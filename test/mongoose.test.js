@@ -11,6 +11,7 @@ describe('User Model', () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+   
   });
 
   after(async () => {
@@ -21,31 +22,29 @@ describe('User Model', () => {
     await User.deleteMany({});
   });
 
-  it('should create and save a user', async () => {
-    const userData = { sName: 'parita ganatra', sEmail: 'parita.ganatra@yudiz.com' };
-    const savedUser = await User.create(userData);
 
-    expect(savedUser._id).to.exist;
-    expect(savedUser.sName).to.equal(userData.sName);
-    expect(savedUser.sEmail).to.equal(userData.sEmail);
+  it('should create a new user', async function () {
+    await User.createUser('parita ganatra', 'parita.ganatra@yudiz.com');
+    const users = await User.getAllUsers();
+    expect(users).to.have.lengthOf(1);
   });
 
-  it('should retrieve a user', async () => {
-    const userData = { sName: 'parita ganatra', sEmail: 'parita.ganatra@yudiz.com' };
-    const savedUser = await User.create(userData);
-   
-
-    const retrievedUser = await User.findOne({ sEmail: 'parita.ganatra@yudiz.com' });
-
-    expect(retrievedUser).to.exist;
-    expect(retrievedUser.sName).to.equal(userData.sName);
-    expect(retrievedUser.sEmail).to.equal(userData.sEmail);
+  it('should update a user', async function () {
+    await User.createUser('parita ganatra', 'parita.ganatra@yudiz.com');
+    const users = await User.getAllUsers();
+    const userId = users[0]._id;
+    await User.updateUser(userId, 'pari ganatra');
+    const updatedUsers = await User.getAllUsers();
+    expect(updatedUsers[0].sName).to.equal('pari ganatra');
   });
 
-  it('should retrieve a list of models', () => {
-    const models = mongoose.modelNames(); 
-    expect(models).to.be.an('array').that.is.not.empty;
-   
+  it('should delete a user', async function () {
+    await User.createUser('parita ganatra', 'parita.ganatra@yudiz.com');
+    const users = await User.getAllUsers();
+    const userId = users[0]._id;
+    await User.deleteUser(userId);
+    const remainingUsers = await User.getAllUsers();
+    expect(remainingUsers).to.have.lengthOf(0);
   });
 
 });
